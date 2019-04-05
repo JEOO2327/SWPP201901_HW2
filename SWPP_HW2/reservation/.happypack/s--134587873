@@ -1,0 +1,55 @@
+'use strict';
+
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+
+var _reactRedux = require('react-redux');
+
+var _redux = require('redux');
+
+var _actions = require('../store/meetinglist/actions');
+
+var _Login = require('../components/molecules/Login');
+
+var mapStateToProps = function mapStateToProps(state) {
+  return {
+    state: state.meetinglist
+  };
+};
+
+var mapDispatchToProps = function mapDispatchToProps(dispatch) {
+  return {
+    /*      postRequest : () => {
+            dispatch(postRequest())
+          },
+          deleteRequest : () => {
+            dispatch(deleteRequest())
+          },*/
+    loginRequest: function loginRequest(username, password) {
+      dispatch((0, _actions.loginRequest)(username, password));
+    },
+    logoutRequest: function logoutRequest() {
+      dispatch((0, _actions.logoutRequest)());
+    }
+  };
+};
+
+var _default = (0, _reactRedux.connect)(mapStateToProps, mapDispatchToProps)(_Login.Login);
+
+exports.default = _default;
+;
+
+var _temp = function () {
+  if (typeof __REACT_HOT_LOADER__ === 'undefined') {
+    return;
+  }
+
+  __REACT_HOT_LOADER__.register(mapStateToProps, 'mapStateToProps', '/home/ubuntu/testdir/HW2/SWPP_HW2/reservation/src/containers/Login.js');
+
+  __REACT_HOT_LOADER__.register(mapDispatchToProps, 'mapDispatchToProps', '/home/ubuntu/testdir/HW2/SWPP_HW2/reservation/src/containers/Login.js');
+
+  __REACT_HOT_LOADER__.register(_default, 'default', '/home/ubuntu/testdir/HW2/SWPP_HW2/reservation/src/containers/Login.js');
+}();
+
+;

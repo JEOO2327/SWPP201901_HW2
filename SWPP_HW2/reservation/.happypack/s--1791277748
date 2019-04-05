@@ -1,0 +1,21 @@
+"use strict";
+
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+var initialState = exports.initialState = {
+  username: localStorage.getItem("username"),
+  meetingList: localStorage.getItem("meetingList"),
+  token: localStorage.getItem("token")
+};
+;
+
+var _temp = function () {
+  if (typeof __REACT_HOT_LOADER__ === 'undefined') {
+    return;
+  }
+
+  __REACT_HOT_LOADER__.register(initialState, "initialState", "/home/ubuntu/testdir/HW2/SWPP_HW2/reservation/src/store/meetinglist/selectors.js");
+}();
+
+;

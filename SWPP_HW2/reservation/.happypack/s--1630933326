@@ -1,0 +1,127 @@
+'use strict';
+
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+
+var POST_SUCCESS = 'POST_SUCCESS';
+var POST_FAIL = 'POST_FAIL';
+var POST_REQUEST = 'POST_REQUEST';
+
+var DELETE_SUCCESS = 'DELETE_SUCCESS';
+var DELETE_REQUEST = 'DELETE_REQUEST';
+
+var LOGIN_SUCCESS = 'LOGIN_SUCCESS';
+var LOGIN_FAIL = 'LOGIN_FAIL';
+var LOGIN_REQUEST = 'LOGIN_REQUEST';
+var LOGOUT_REQUEST = 'LOGOUT_REQUEST';
+
+var nextMeetingId = 0;
+
+var postSuccess = exports.postSuccess = function postSuccess(meetingInfoList) {
+  return {
+    type: POST_SUCCESS,
+    meetingInfoList: meetingInfoList
+
+  };
+};
+var postFail = exports.postFail = function postFail() {
+  return {
+    type: POST_FAIL
+  };
+};
+
+var postRequest = exports.postRequest = function postRequest(sinceWhen, tilWhen) {
+  return {
+    type: POST_REQUEST,
+    sinceWhen: sinceWhen,
+    tilWhen: tilWhen
+  };
+};
+
+var deleteSuccess = exports.deleteSuccess = function deleteSuccess(id) {
+  return {
+    type: DELETE_SUCCESS,
+    id: id
+  };
+};
+var deleteRequest = exports.deleteRequest = function deleteRequest(id) {
+  return {
+    type: DELETE_REQUEST,
+    id: id
+  };
+};
+
+var loginSuccess = exports.loginSuccess = function loginSuccess(username, password, meetingList) {
+  return {
+    type: LOGIN_SUCCESS,
+    username: username,
+    password: password,
+    token: new Buffer(username + ':' + password).toString('base64'),
+    meetingList: meetingList
+  };
+};
+var loginFail = exports.loginFail = function loginFail() {
+  return {
+    type: LOGIN_FAIL
+  };
+};
+var loginRequest = exports.loginRequest = function loginRequest(username, password) {
+  return {
+    type: LOGIN_REQUEST,
+    username: username,
+    password: password
+  };
+};
+var logoutRequest = exports.logoutRequest = function logoutRequest() {
+  return {
+    type: LOGOUT_REQUEST
+  };
+};
+;
+
+var _temp = function () {
+  if (typeof __REACT_HOT_LOADER__ === 'undefined') {
+    return;
+  }
+
+  __REACT_HOT_LOADER__.register(POST_SUCCESS, 'POST_SUCCESS', '/home/ubuntu/testdir/HW2/SWPP_HW2/reservation/src/store/meetinglist/actions.js');
+
+  __REACT_HOT_LOADER__.register(POST_FAIL, 'POST_FAIL', '/home/ubuntu/testdir/HW2/SWPP_HW2/reservation/src/store/meetinglist/actions.js');
+
+  __REACT_HOT_LOADER__.register(POST_REQUEST, 'POST_REQUEST', '/home/ubuntu/testdir/HW2/SWPP_HW2/reservation/src/store/meetinglist/actions.js');
+
+  __REACT_HOT_LOADER__.register(DELETE_SUCCESS, 'DELETE_SUCCESS', '/home/ubuntu/testdir/HW2/SWPP_HW2/reservation/src/store/meetinglist/actions.js');
+
+  __REACT_HOT_LOADER__.register(DELETE_REQUEST, 'DELETE_REQUEST', '/home/ubuntu/testdir/HW2/SWPP_HW2/reservation/src/store/meetinglist/actions.js');
+
+  __REACT_HOT_LOADER__.register(LOGIN_SUCCESS, 'LOGIN_SUCCESS', '/home/ubuntu/testdir/HW2/SWPP_HW2/reservation/src/store/meetinglist/actions.js');
+
+  __REACT_HOT_LOADER__.register(LOGIN_FAIL, 'LOGIN_FAIL', '/home/ubuntu/testdir/HW2/SWPP_HW2/reservation/src/store/meetinglist/actions.js');
+
+  __REACT_HOT_LOADER__.register(LOGIN_REQUEST, 'LOGIN_REQUEST', '/home/ubuntu/testdir/HW2/SWPP_HW2/reservation/src/store/meetinglist/actions.js');
+
+  __REACT_HOT_LOADER__.register(LOGOUT_REQUEST, 'LOGOUT_REQUEST', '/home/ubuntu/testdir/HW2/SWPP_HW2/reservation/src/store/meetinglist/actions.js');
+
+  __REACT_HOT_LOADER__.register(nextMeetingId, 'nextMeetingId', '/home/ubuntu/testdir/HW2/SWPP_HW2/reservation/src/store/meetinglist/actions.js');
+
+  __REACT_HOT_LOADER__.register(postSuccess, 'postSuccess', '/home/ubuntu/testdir/HW2/SWPP_HW2/reservation/src/store/meetinglist/actions.js');
+
+  __REACT_HOT_LOADER__.register(postFail, 'postFail', '/home/ubuntu/testdir/HW2/SWPP_HW2/reservation/src/store/meetinglist/actions.js');
+
+  __REACT_HOT_LOADER__.register(postRequest, 'postRequest', '/home/ubuntu/testdir/HW2/SWPP_HW2/reservation/src/store/meetinglist/actions.js');
+
+  __REACT_HOT_LOADER__.register(deleteSuccess, 'deleteSuccess', '/home/ubuntu/testdir/HW2/SWPP_HW2/reservation/src/store/meetinglist/actions.js');
+
+  __REACT_HOT_LOADER__.register(deleteRequest, 'deleteRequest', '/home/ubuntu/testdir/HW2/SWPP_HW2/reservation/src/store/meetinglist/actions.js');
+
+  __REACT_HOT_LOADER__.register(loginSuccess, 'loginSuccess', '/home/ubuntu/testdir/HW2/SWPP_HW2/reservation/src/store/meetinglist/actions.js');
+
+  __REACT_HOT_LOADER__.register(loginFail, 'loginFail', '/home/ubuntu/testdir/HW2/SWPP_HW2/reservation/src/store/meetinglist/actions.js');
+
+  __REACT_HOT_LOADER__.register(loginRequest, 'loginRequest', '/home/ubuntu/testdir/HW2/SWPP_HW2/reservation/src/store/meetinglist/actions.js');
+
+  __REACT_HOT_LOADER__.register(logoutRequest, 'logoutRequest', '/home/ubuntu/testdir/HW2/SWPP_HW2/reservation/src/store/meetinglist/actions.js');
+}();
+
+;

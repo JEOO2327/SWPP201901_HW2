@@ -1,0 +1,200 @@
+'use strict';
+
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+exports.MeetingInfoList = undefined;
+
+var _templateObject = _taggedTemplateLiteral(['\n  font-family: ', ';\n  color: ', ';\n'], ['\n  font-family: ', ';\n  color: ', ';\n']);
+
+var _react = require('react');
+
+var _react2 = _interopRequireDefault(_react);
+
+var _styledComponents = require('styled-components');
+
+var _styledComponents2 = _interopRequireDefault(_styledComponents);
+
+var _styledTheme = require('styled-theme');
+
+var _MeetingInfo = require('../MeetingInfo');
+
+var _Button = require('../../atoms/Button');
+
+var _Button2 = _interopRequireDefault(_Button);
+
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+function _taggedTemplateLiteral(strings, raw) { return Object.freeze(Object.defineProperties(strings, { raw: { value: Object.freeze(raw) } })); }
+
+var Wrapper = _styledComponents2.default.div(_templateObject, (0, _styledTheme.font)('primary'), (0, _styledTheme.palette)('grayscale', 0));
+
+var style = {
+  border: '1px solid black',
+  padding: '8px',
+  margin: '8px'
+};
+
+var reserveStyle = {
+  border: '2px solid black',
+  padding: '4px',
+  margin: '4px'
+};
+
+var MeetingInfoList = exports.MeetingInfoList = function MeetingInfoList(_ref) {
+  var state = _ref.state,
+      postRequest = _ref.postRequest,
+      deleteRequest = _ref.deleteRequest;
+
+
+  //    console.log("state: " + state.meetingList)
+  var sinceWhen = void 0,
+      tilWhen = void 0;
+  if (localStorage.getItem("token") !== null) {
+    var meetingList = state.meetingList;
+
+    if (meetingList !== null) {
+      var meetingInfoList = JSON.parse(meetingList);
+      //      console.log("meetingList molecule, meetingInfoList : " + meetingInfoList)
+      //      console.log("maping" + meetingInfoList.map(meeting => meeting.sinceWhen ) )
+      var list = meetingInfoList.map(function (meeting) {
+        return _react2.default.createElement(
+          'div',
+          { key: meeting.id },
+          _react2.default.createElement(_MeetingInfo.MeetingInfo, { sinceWhen: meeting.sinceWhen,
+            tilWhen: meeting.tilWhen,
+            id: meeting.id,
+            created: meeting.created,
+            user: meeting.user,
+            deleteRequest: deleteRequest })
+        );
+      });
+      //    console.log(list)
+      return _react2.default.createElement(
+        'div',
+        { style: style },
+        _react2.default.createElement(
+          'div',
+          { style: reserveStyle },
+          _react2.default.createElement(
+            'div',
+            null,
+            _react2.default.createElement(
+              'div',
+              null,
+              _react2.default.createElement(
+                'h2',
+                null,
+                'sinceWhen :'
+              ),
+              _react2.default.createElement('input', { type: 'datetime-local', id: 'sinceWhen_field', ref: function ref(val) {
+                  sinceWhen = val;
+                } })
+            ),
+            _react2.default.createElement(
+              'div',
+              null,
+              _react2.default.createElement(
+                'h2',
+                null,
+                'tilWhen :'
+              ),
+              _react2.default.createElement('input', { type: 'datetime-local', id: 'tilWhen_field', ref: function ref(val) {
+                  tilWhen = val;
+                } })
+            )
+          ),
+          _react2.default.createElement(
+            'button',
+            { type: 'submit', onClick: function onClick() {
+                return postRequest(sinceWhen.value, tilWhen.value);
+              } },
+            ' \uC608\uC57D '
+          )
+        ),
+        _react2.default.createElement(
+          'div',
+          null,
+          _react2.default.createElement(
+            'div',
+            null,
+            list
+          )
+        )
+      );
+    } else {
+      return _react2.default.createElement(
+        'div',
+        { style: style },
+        _react2.default.createElement(
+          'div',
+          { style: reserveStyle },
+          _react2.default.createElement(
+            'div',
+            null,
+            _react2.default.createElement(
+              'div',
+              null,
+              _react2.default.createElement(
+                'h2',
+                null,
+                'sinceWhen :'
+              ),
+              _react2.default.createElement('input', { type: 'datetime-local', id: 'sinceWhen_field', ref: function ref(val) {
+                  sinceWhen = val;
+                } })
+            ),
+            _react2.default.createElement(
+              'div',
+              null,
+              _react2.default.createElement(
+                'h2',
+                null,
+                'tilWhen :'
+              ),
+              _react2.default.createElement('input', { type: 'datetime-local', id: 'tilWhen_field', ref: function ref(val) {
+                  tilWhen = val;
+                } })
+            )
+          ),
+          _react2.default.createElement(
+            'button',
+            { type: 'submit', onClick: function onClick() {
+                return postRequest(sinceWhen.value, tilWhen.value);
+              } },
+            ' \uC608\uC57D '
+          )
+        )
+      );
+    }
+  } else {
+    return _react2.default.createElement('div', null);
+  }
+};
+
+MeetingInfoList.propTypes = {
+  reverse: _react.PropTypes.bool,
+  children: _react.PropTypes.node
+};
+
+var _default = MeetingInfoList;
+exports.default = _default;
+;
+
+var _temp = function () {
+  if (typeof __REACT_HOT_LOADER__ === 'undefined') {
+    return;
+  }
+
+  __REACT_HOT_LOADER__.register(Wrapper, 'Wrapper', '/home/ubuntu/testdir/HW2/SWPP_HW2/reservation/src/components/molecules/MeetingInfoList/index.js');
+
+  __REACT_HOT_LOADER__.register(style, 'style', '/home/ubuntu/testdir/HW2/SWPP_HW2/reservation/src/components/molecules/MeetingInfoList/index.js');
+
+  __REACT_HOT_LOADER__.register(reserveStyle, 'reserveStyle', '/home/ubuntu/testdir/HW2/SWPP_HW2/reservation/src/components/molecules/MeetingInfoList/index.js');
+
+  __REACT_HOT_LOADER__.register(MeetingInfoList, 'MeetingInfoList', '/home/ubuntu/testdir/HW2/SWPP_HW2/reservation/src/components/molecules/MeetingInfoList/index.js');
+
+  __REACT_HOT_LOADER__.register(_default, 'default', '/home/ubuntu/testdir/HW2/SWPP_HW2/reservation/src/components/molecules/MeetingInfoList/index.js');
+}();
+
+;

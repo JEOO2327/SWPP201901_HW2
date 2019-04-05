@@ -1,0 +1,22 @@
+'use strict';
+
+var req = require.context('.', true, /\.\/.+\/actions\.js$/);
+
+req.keys().forEach(function (key) {
+  var actions = req(key);
+
+  Object.keys(actions).forEach(function (name) {
+    module.exports[name] = actions[name];
+  });
+});
+;
+
+var _temp = function () {
+  if (typeof __REACT_HOT_LOADER__ === 'undefined') {
+    return;
+  }
+
+  __REACT_HOT_LOADER__.register(req, 'req', '/home/ubuntu/testdir/HW2/SWPP_HW2/reservation/src/store/actions.js');
+}();
+
+;

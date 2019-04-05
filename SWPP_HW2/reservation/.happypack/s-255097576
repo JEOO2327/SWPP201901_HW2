@@ -1,0 +1,117 @@
+'use strict';
+
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+exports.MeetingInfo = undefined;
+
+var _templateObject = _taggedTemplateLiteral(['\n  font-family: ', ';\n  color: ', ';\n'], ['\n  font-family: ', ';\n  color: ', ';\n']);
+
+var _react = require('react');
+
+var _react2 = _interopRequireDefault(_react);
+
+var _styledComponents = require('styled-components');
+
+var _styledComponents2 = _interopRequireDefault(_styledComponents);
+
+var _styledTheme = require('styled-theme');
+
+var _Button = require('../../atoms/Button');
+
+var _Button2 = _interopRequireDefault(_Button);
+
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+function _taggedTemplateLiteral(strings, raw) { return Object.freeze(Object.defineProperties(strings, { raw: { value: Object.freeze(raw) } })); }
+
+var Wrapper = _styledComponents2.default.div(_templateObject, (0, _styledTheme.font)('primary'), (0, _styledTheme.palette)('grayscale', 0));
+
+var style = {
+  border: '1px solid black',
+  padding: '8px',
+  margin: '8px',
+  background: '#e3fafc'
+
+};
+
+var MeetingInfo = exports.MeetingInfo = function MeetingInfo(_ref) {
+  var state = _ref.state,
+      sinceWhen = _ref.sinceWhen,
+      tilWhen = _ref.tilWhen,
+      id = _ref.id,
+      deleteRequest = _ref.deleteRequest,
+      created = _ref.created,
+      user = _ref.user;
+
+
+  return _react2.default.createElement(
+    'div',
+    { style: style },
+    _react2.default.createElement(
+      'div',
+      null,
+      'sinceWhen : ',
+      sinceWhen
+    ),
+    _react2.default.createElement(
+      'div',
+      null,
+      'tilWhen : ',
+      tilWhen
+    ),
+    _react2.default.createElement(
+      'div',
+      null,
+      'id : ',
+      id
+    ),
+    _react2.default.createElement(
+      'div',
+      null,
+      'created : ',
+      created
+    ),
+    _react2.default.createElement(
+      'div',
+      null,
+      'username : ',
+      user
+    ),
+    _react2.default.createElement(
+      'button',
+      { onClick: function onClick() {
+          return deleteRequest(id);
+        } },
+      '\uC0AD\uC81C'
+    )
+  );
+};
+
+MeetingInfo.propTypes = {
+  sinceWhen: _react.PropTypes.string.isRequired,
+  tilWhen: _react.PropTypes.string.isRequired,
+  id: _react.PropTypes.number.isRequired,
+  reverse: _react.PropTypes.bool,
+  children: _react.PropTypes.node
+};
+
+var _default = MeetingInfo;
+exports.default = _default;
+;
+
+var _temp = function () {
+  if (typeof __REACT_HOT_LOADER__ === 'undefined') {
+    return;
+  }
+
+  __REACT_HOT_LOADER__.register(Wrapper, 'Wrapper', '/home/ubuntu/testdir/HW2/SWPP_HW2/reservation/src/components/molecules/MeetingInfo/index.js');
+
+  __REACT_HOT_LOADER__.register(style, 'style', '/home/ubuntu/testdir/HW2/SWPP_HW2/reservation/src/components/molecules/MeetingInfo/index.js');
+
+  __REACT_HOT_LOADER__.register(MeetingInfo, 'MeetingInfo', '/home/ubuntu/testdir/HW2/SWPP_HW2/reservation/src/components/molecules/MeetingInfo/index.js');
+
+  __REACT_HOT_LOADER__.register(_default, 'default', '/home/ubuntu/testdir/HW2/SWPP_HW2/reservation/src/components/molecules/MeetingInfo/index.js');
+}();
+
+;

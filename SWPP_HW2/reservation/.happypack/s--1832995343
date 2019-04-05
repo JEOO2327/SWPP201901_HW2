@@ -1,0 +1,48 @@
+'use strict';
+
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+
+var _effects = require('redux-saga/effects');
+
+var req = require.context('.', true, /\.\/.+\/sagas\.js$/);
+
+var sagas = [];
+
+req.keys().forEach(function (key) {
+  sagas.push(req(key).default);
+});
+
+var _default = /*#__PURE__*/regeneratorRuntime.mark(function _default() {
+  return regeneratorRuntime.wrap(function _default$(_context) {
+    while (1) {
+      switch (_context.prev = _context.next) {
+        case 0:
+          _context.next = 2;
+          return sagas.map(_effects.fork);
+
+        case 2:
+        case 'end':
+          return _context.stop();
+      }
+    }
+  }, _default, this);
+});
+
+exports.default = _default;
+;
+
+var _temp = function () {
+  if (typeof __REACT_HOT_LOADER__ === 'undefined') {
+    return;
+  }
+
+  __REACT_HOT_LOADER__.register(req, 'req', '/home/ubuntu/testdir/HW2/SWPP_HW2/reservation/src/store/sagas.js');
+
+  __REACT_HOT_LOADER__.register(sagas, 'sagas', '/home/ubuntu/testdir/HW2/SWPP_HW2/reservation/src/store/sagas.js');
+
+  __REACT_HOT_LOADER__.register(_default, 'default', '/home/ubuntu/testdir/HW2/SWPP_HW2/reservation/src/store/sagas.js');
+}();
+
+;

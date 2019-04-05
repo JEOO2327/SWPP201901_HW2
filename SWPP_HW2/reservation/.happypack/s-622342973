@@ -1,0 +1,136 @@
+'use strict';
+
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+exports.Login = undefined;
+
+var _templateObject = _taggedTemplateLiteral(['\n  font-family: ', ';\n  color: ', ';\n'], ['\n  font-family: ', ';\n  color: ', ';\n']);
+
+var _react = require('react');
+
+var _react2 = _interopRequireDefault(_react);
+
+var _styledComponents = require('styled-components');
+
+var _styledComponents2 = _interopRequireDefault(_styledComponents);
+
+var _styledTheme = require('styled-theme');
+
+var _Button = require('../../atoms/Button');
+
+var _Button2 = _interopRequireDefault(_Button);
+
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+function _taggedTemplateLiteral(strings, raw) { return Object.freeze(Object.defineProperties(strings, { raw: { value: Object.freeze(raw) } })); }
+
+var Wrapper = _styledComponents2.default.div(_templateObject, (0, _styledTheme.font)('primary'), (0, _styledTheme.palette)('grayscale', 0));
+
+var style = {
+  border: '1px solid black',
+  padding: '8px',
+  margin: '8px'
+};
+
+var Login = exports.Login = function Login(_ref) {
+  var state = _ref.state,
+      postRequest = _ref.postRequest,
+      loginRequest = _ref.loginRequest,
+      logoutRequest = _ref.logoutRequest;
+
+
+  var username = void 0,
+      password = void 0;
+  if (state.token === null) {
+    return _react2.default.createElement(
+      'div',
+      null,
+      _react2.default.createElement(
+        'div',
+        null,
+        _react2.default.createElement(
+          'div',
+          null,
+          _react2.default.createElement(
+            'h2',
+            null,
+            'Login :'
+          ),
+          _react2.default.createElement('input', { id: 'username_field', ref: function ref(val) {
+              username = val;
+            } })
+        ),
+        _react2.default.createElement(
+          'div',
+          null,
+          _react2.default.createElement(
+            'h2',
+            null,
+            'PW :'
+          ),
+          _react2.default.createElement('input', { id: 'password_field', ref: function ref(val) {
+              password = val;
+            } })
+        )
+      ),
+      _react2.default.createElement('div', null),
+      _react2.default.createElement(
+        'button',
+        { type: 'submit', onClick: function onClick() {
+            return loginRequest(username.value, password.value);
+          } },
+        ' \uB85C\uADF8\uC778 '
+      )
+    );
+  } else {
+    username = localStorage.getItem("username");
+    return _react2.default.createElement(
+      'div',
+      null,
+      _react2.default.createElement(
+        'h1',
+        null,
+        _react2.default.createElement(
+          'b',
+          null,
+          ' Username : ',
+          username,
+          ' '
+        )
+      ),
+      _react2.default.createElement(
+        'button',
+        { type: 'submit', onClick: function onClick() {
+            return logoutRequest();
+          } },
+        ' \uB85C\uADF8\uC544\uC6C3 '
+      )
+    );
+  }
+};
+
+Login.propTypes = {
+  reverse: _react.PropTypes.bool,
+  children: _react.PropTypes.node
+};
+
+var _default = Login;
+exports.default = _default;
+;
+
+var _temp = function () {
+  if (typeof __REACT_HOT_LOADER__ === 'undefined') {
+    return;
+  }
+
+  __REACT_HOT_LOADER__.register(Wrapper, 'Wrapper', '/home/ubuntu/testdir/HW2/SWPP_HW2/reservation/src/components/molecules/Login/index.js');
+
+  __REACT_HOT_LOADER__.register(style, 'style', '/home/ubuntu/testdir/HW2/SWPP_HW2/reservation/src/components/molecules/Login/index.js');
+
+  __REACT_HOT_LOADER__.register(Login, 'Login', '/home/ubuntu/testdir/HW2/SWPP_HW2/reservation/src/components/molecules/Login/index.js');
+
+  __REACT_HOT_LOADER__.register(_default, 'default', '/home/ubuntu/testdir/HW2/SWPP_HW2/reservation/src/components/molecules/Login/index.js');
+}();
+
+;

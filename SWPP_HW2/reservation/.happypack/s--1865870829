@@ -1,0 +1,42 @@
+'use strict';
+
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+
+var _redux = require('redux');
+
+var _reactRouterRedux = require('react-router-redux');
+
+var _reduxForm = require('redux-form');
+
+var reducers = {
+  routing: _reactRouterRedux.routerReducer,
+  form: _reduxForm.reducer
+};
+
+var req = require.context('.', true, /\.\/.+\/reducer\.js$/);
+
+req.keys().forEach(function (key) {
+  var storeName = key.replace(/\.\/(.+)\/.+$/, '$1');
+  reducers[storeName] = req(key).default;
+});
+
+var _default = (0, _redux.combineReducers)(reducers);
+
+exports.default = _default;
+;
+
+var _temp = function () {
+  if (typeof __REACT_HOT_LOADER__ === 'undefined') {
+    return;
+  }
+
+  __REACT_HOT_LOADER__.register(reducers, 'reducers', '/home/ubuntu/testdir/HW2/SWPP_HW2/reservation/src/store/reducer.js');
+
+  __REACT_HOT_LOADER__.register(req, 'req', '/home/ubuntu/testdir/HW2/SWPP_HW2/reservation/src/store/reducer.js');
+
+  __REACT_HOT_LOADER__.register(_default, 'default', '/home/ubuntu/testdir/HW2/SWPP_HW2/reservation/src/store/reducer.js');
+}();
+
+;

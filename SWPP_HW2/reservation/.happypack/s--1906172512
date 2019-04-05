@@ -1,0 +1,73 @@
+'use strict';
+
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+
+var _redux = require('redux');
+
+var _reactRouterRedux = require('react-router-redux');
+
+var _reduxSaga = require('redux-saga');
+
+var _reduxSaga2 = _interopRequireDefault(_reduxSaga);
+
+var _middlewares = require('./middlewares');
+
+var _middlewares2 = _interopRequireDefault(_middlewares);
+
+var _reducer = require('./reducer');
+
+var _reducer2 = _interopRequireDefault(_reducer);
+
+var _sagas = require('./sagas');
+
+var _sagas2 = _interopRequireDefault(_sagas);
+
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+function _toConsumableArray(arr) { if (Array.isArray(arr)) { for (var i = 0, arr2 = Array(arr.length); i < arr.length; i++) { arr2[i] = arr[i]; } return arr2; } else { return Array.from(arr); } }
+
+var configureStore = function configureStore(initialState, history) {
+  var hasWindow = typeof window !== 'undefined';
+  var sagaMiddleware = (0, _reduxSaga2.default)();
+
+  var finalCreateStore = (0, _redux.compose)(_redux.applyMiddleware.apply(undefined, _toConsumableArray(_middlewares2.default).concat([sagaMiddleware, (0, _reactRouterRedux.routerMiddleware)(history)])), hasWindow && window.devToolsExtension ? window.devToolsExtension() : function (f) {
+    return f;
+  })(_redux.createStore);
+
+  var store = finalCreateStore(_reducer2.default, initialState);
+  var sagaTask = sagaMiddleware.run(_sagas2.default);
+
+  if (module.hot) {
+    module.hot.accept('./reducer', function () {
+      var nextReducer = require('./reducer').default;
+      store.replaceReducer(nextReducer);
+    });
+    module.hot.accept('./sagas', function () {
+      var nextSagas = require('./sagas').default;
+      sagaTask.cancel();
+      sagaTask.done.then(function () {
+        sagaTask = sagaMiddleware.run(nextSagas);
+      });
+    });
+  }
+
+  return store;
+};
+
+var _default = configureStore;
+exports.default = _default;
+;
+
+var _temp = function () {
+  if (typeof __REACT_HOT_LOADER__ === 'undefined') {
+    return;
+  }
+
+  __REACT_HOT_LOADER__.register(configureStore, 'configureStore', '/home/ubuntu/testdir/HW2/SWPP_HW2/reservation/src/store/configure.js');
+
+  __REACT_HOT_LOADER__.register(_default, 'default', '/home/ubuntu/testdir/HW2/SWPP_HW2/reservation/src/store/configure.js');
+}();
+
+;

@@ -1,0 +1,50 @@
+'use strict';
+
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+
+var _reactRedux = require('react-redux');
+
+var _redux = require('redux');
+
+var _actions = require('../store/meetinglist/actions');
+
+var _MeetingInfoList = require('../components/molecules/MeetingInfoList');
+
+var mapStateToProps = function mapStateToProps(state) {
+  return {
+    state: state.meetinglist
+  };
+};
+
+var mapDispatchToProps = function mapDispatchToProps(dispatch) {
+  return {
+    postRequest: function postRequest(sinceWhen, tilWhen) {
+      dispatch((0, _actions.postRequest)(sinceWhen, tilWhen));
+    },
+
+    deleteRequest: function deleteRequest(id) {
+      dispatch((0, _actions.deleteRequest)(id));
+    }
+  };
+};
+
+var _default = (0, _reactRedux.connect)(mapStateToProps, mapDispatchToProps)(_MeetingInfoList.MeetingInfoList);
+
+exports.default = _default;
+;
+
+var _temp = function () {
+  if (typeof __REACT_HOT_LOADER__ === 'undefined') {
+    return;
+  }
+
+  __REACT_HOT_LOADER__.register(mapStateToProps, 'mapStateToProps', '/home/ubuntu/testdir/HW2/SWPP_HW2/reservation/src/containers/MeetingInfoList.js');
+
+  __REACT_HOT_LOADER__.register(mapDispatchToProps, 'mapDispatchToProps', '/home/ubuntu/testdir/HW2/SWPP_HW2/reservation/src/containers/MeetingInfoList.js');
+
+  __REACT_HOT_LOADER__.register(_default, 'default', '/home/ubuntu/testdir/HW2/SWPP_HW2/reservation/src/containers/MeetingInfoList.js');
+}();
+
+;
